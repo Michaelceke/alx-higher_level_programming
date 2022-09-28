@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""module to load and save"""
-import sys
+"""save_to_json_file
+"""
+import json
 
-if __name__ == "__main__":
-    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file =\
-        __import__('6-load_from_json_file').load_from_json_file
 
-    try:
-        items = load_from_json_file("add_item.json")
-    except FileNotFoundError:
-        items = []
-    items.extend(sys.argv[1:])
-    save_to_json_file(items, "add_item.json")
+def save_to_json_file(my_obj, filename):
+    """Writes an object to a text file, using JSON
+    """
+
+    with open(filename, mode="w", encoding="UTF-8") as saveFile:
+        json.dump(my_obj, saveFile)
