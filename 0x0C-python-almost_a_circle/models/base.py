@@ -77,12 +77,12 @@ class Base:
             - json_string: string to convert to list
         """
 
-        lister = []
+        listStr = []
         if json_string is not None and json_string != '':
             if type(json_string) != str:
                 raise TypeError("json_string must be a string")
-            lister = json.loads(json_string)
-        return lister
+            listStr = json.loads(json_string)
+        return listStr
 
     @classmethod
     def create(cls, **dictionary):
@@ -105,15 +105,15 @@ class Base:
         """Returns a list of instances."""
 
         filename = cls.__name__ + ".json"
-        lister = []
+        listStr = []
         list_dicts = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 s = f.read()
                 list_dicts = cls.from_json_string(s)
                 for d in list_dicts:
-                    lister.append(cls.create(**d))
-        return lister
+                    listStr.append(cls.create(**d))
+        return listStr
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -149,7 +149,7 @@ class Base:
         """
 
         filename = cls.__name__ + ".csv"
-        lister = []
+        listStr = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 reader = csv.reader(f, delimiter=',')
@@ -163,8 +163,8 @@ class Base:
                         for j, e in enumerate(row):
                             if e:
                                 setattr(i, fields[j], int(e))
-                        lister.append(i)
-        return lister
+                        listStr.append(i)
+        return listStr
 
     @staticmethod
     def draw(list_rectangles, list_squares):
@@ -211,4 +211,4 @@ class Base:
         t.forward(rect.width)
         t.left(90)
         t.forward(rect.height)
-
+        
