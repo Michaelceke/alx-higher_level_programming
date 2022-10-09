@@ -149,7 +149,7 @@ class Base:
         """
 
         filename = cls.__name__ + ".csv"
-        listStr = []
+        list = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 reader = csv.reader(f, delimiter=',')
@@ -211,4 +211,4 @@ class Base:
         t.forward(rect.width)
         t.left(90)
         t.forward(rect.height)
-        
+
