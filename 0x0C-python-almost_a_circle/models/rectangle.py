@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module: rectangle
-This class inherits from Base
+This class inheritss from Base
 """
 
 import json
@@ -18,7 +18,7 @@ class Rectangle(Base):
             - __width: width
             - __height: height
             - __x: x
-            - __y: y 
+            - __y: y
             - id
         """
 
@@ -120,7 +120,7 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """It assigns an argument to each attribute
- 
+
         Args:
             - id attribute
             - width attribute
